@@ -1,4 +1,4 @@
-import numpy as npzz
+import numpy as np
 
 
 # This is where you can build a decision tree for determining throttle, brake and steer 
