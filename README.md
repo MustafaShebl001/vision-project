@@ -2,5 +2,5 @@
 ## Team Members
 | Name                   |ID |
 |-----|--------|
-|Mustafa SAyed AL-Said Mohamed| 1900361|
+|Mustafa Sayed Al-Said Mohamed| 1900361|
 |Lotfy Mabrouk Aly El-Said|1803659|
