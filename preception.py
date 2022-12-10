@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[4]:
+# In[ ]:
 
 
 import numpy as np
@@ -15,7 +15,7 @@ def color_thresh(img, rgb_thresh=(160, 160, 160)):
     # Require that each pixel be above all three threshold values in RGB
     # above_thresh will now contain a boolean array with "True"
     # where threshold was met
-    above_thresh = (img[:,:,0] > rgb_thresh[0])                 & (img[:,:,1] > rgb_thresh[1])                 & (img[:,:,2] > rgb_thresh[2])
+    above_thresh = (img[:,:,0] > rgb_thresh[0])                & (img[:,:,1] > rgb_thresh[1])                 & (img[:,:,2] > rgb_thresh[2])
     # Index the array of zeros with the boolean array and set to 1
     color_select[above_thresh] = 1
     # Return the binary image
@@ -78,17 +78,16 @@ def perspect_transform(img, src, dst):
            
     M = cv2.getPerspectiveTransform(src, dst)
     warped = cv2.warpPerspective(img, M, (img.shape[1], img.shape[0]))# keep same size as input image
-    mask = cv2.warpPerspective(np.ones_like(img[:, :, 0]), M, (img.shape[1], img.shape[0]))
-    return warped, mask
+    
+    return warped
 
 def find_rocks(img, levels=(110, 110, 50)):
-    rockpix = ((img[:, :, 0] > levels[0]) \
-                & (img[:, :, 1] > levels[1]) \
-                & (img[:, :, 2] > levels[2]))
+    rockpix = ((img[:, :, 0] > levels[0])                 & (img[:, :, 1] > levels[1])                 & (img[:, :, 2] > levels[2]))
     color_select = np.zeros_like(img[:, :, 0])
     color_select[rockpix] = 1
 
     return color_select
+
 
 # Apply the above functions in succession and update the Rover state accordingly
 def perception_step(Rover):
@@ -159,9 +158,4 @@ def perception_step(Rover):
     else:
         Rover.vision_image[:, :, 1] = 0
     return Rover
-
-# In[ ]:
-
-
-
 
