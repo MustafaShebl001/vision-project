@@ -3,8 +3,8 @@
 1. Install [Anaconda](https://www.anaconda.com/)
 2. Start up Anaconda Navigator using `  anaconda-navigator `
 3. Choose Enviroment and creating a new Python Enviroment with a version of **3.7.2**
-4. Use the following commands on the terminal `p
-5. ip install --upgrade python-socketio==4.6.0
+4. Use the following commands on the terminal ` 
+pip install --upgrade python-socketio==4.6.0
 
 pip install --upgrade python-engineio==3.13.2
 
