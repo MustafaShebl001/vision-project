@@ -7,7 +7,7 @@
 `pip install --upgrade python-socketio==4.6.0` <br />
 `pip install --upgrade python-engineio==3.13.2`<br />
 `pip install --upgrade Flask-SocketIO==4.3.1`
-5. Run `driver_rover.py` on the terminal
+5. Run `python driver_rover.py` on the terminal
 6. Run the simulator in Autonomus mode
 
 
