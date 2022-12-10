@@ -6,9 +6,9 @@
 4. Open enviroment on Terminal and Use the following commands <br />
 `pip install --upgrade python-socketio==4.6.0` <br />
 `pip install --upgrade python-engineio==3.13.2`<br />
-`pip install --upgrade Flask-SocketIO==4.3.1`
-`pip install opencv-python`
-`pip install eventlet`
+`pip install --upgrade Flask-SocketIO==4.3.1`<br />
+`pip install opencv-python`<br />
+`pip install eventlet`<br />
 `pip install matplotlib`
 
 5. Run `python driver_rover.py` on the terminal
