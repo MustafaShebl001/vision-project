@@ -1,6 +1,6 @@
 # NASA Mars Sample & Return Rover
 ## Start-up Guide
-1. Install [Anaconda](https://www.anaconda.com/)
+1. Install [Anaconda](https://www.anaconda.com/) and [Anaconda Navigator](https://docs.anaconda.com/navigator/install/)
 2. Start up Anaconda Navigator using `  anaconda-navigator `
 3. Choose Enviroment and creating a new Python Enviroment with a version of **3.7.2**
 4. Use the following commands on the terminal <br />
