@@ -1,6 +1,6 @@
 # NASA Mars Sample & Return Rover
 ## Start-up instructions
-1. Install [Anaconda] (https://www.anaconda.com/)  through the following link (https://www.anaconda.com/)
+1. Install [Anaconda](https://www.anaconda.com/)
 
 
 ## Team Members
