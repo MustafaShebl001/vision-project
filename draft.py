@@ -12,11 +12,11 @@ def decision_step(Rover):
     offset = 0
     # Only apply left wall hugging when out of the starting point (after 10s)
     # to avoid getting stuck in a circle
-    if Rover.total_time > 15:
+    if Rover.total_time > 10:
         # Steering proportional to the deviation results in
         # small offsets on straight lines and
         # large values in turns and open areas
-        offset = 0.75 * np.std(Rover.nav_angles)
+        offset = 0.8 * np.std(Rover.nav_angles)
 
     # Check if we have vision data to make decisions with
     if Rover.nav_angles is not None:
@@ -72,7 +72,7 @@ def decision_step(Rover):
                 Rover.brake = 0
                 # Set steer to mean angle
                 # Hug left wall by setting the steer angle slightly to the left
-                Rover.steer = np.clip(np.mean((Rover.nav_angles+offset) * 180 / np.pi), -10, 10)
+                Rover.steer = np.clip(np.mean((Rover.nav_angles+offset) * 180 / np.pi), -15, 15)
                 Rover.mode.pop() # returns to previous mode
             # Now we're stopped and we have vision data to see if there's a path forward
             else:
@@ -87,7 +87,7 @@ def decision_step(Rover):
             # Steer torwards the sample
             mean = np.mean(Rover.samples_angles * 180 / np.pi)
             if not np.isnan(mean):
-                Rover.steer = np.clip(mean, -30, 30)
+                Rover.steer = np.clip(mean, -15, 15)
             else:
                 Rover.mode.pop() # no rock in sight anymore. Go back to previous state
 
@@ -103,7 +103,7 @@ def decision_step(Rover):
                 Rover.brake = Rover.brake_set
 
             # if got stuck go to stuck mode
-            elif Rover.vel <= 0 and Rover.total_time - Rover.stuck_time > 20:
+            elif Rover.vel <= 0 and Rover.total_time - Rover.stuck_time > 10:
                 Rover.throttle = 0
                 # Set brake to stored brake value
                 Rover.brake = Rover.brake_set
@@ -112,9 +112,9 @@ def decision_step(Rover):
                 Rover.stuck_time = Rover.total_time
             else:
                 # Approach slowly
-                slow_speed = Rover.max_vel / 3
+                slow_speed = Rover.max_vel / 2
                 if Rover.vel < slow_speed:
-                    Rover.throttle = 0.1
+                    Rover.throttle = 0.2
                     Rover.brake = 0
                 else:  # Else break
                     Rover.throttle = 0
@@ -145,8 +145,8 @@ def decision_step(Rover):
                     Rover.brake = 0
                     # Set steer to mean angle
                     # Hug left wall by setting the steer angle slightly to the left
-                    offset = 12 *np.std(Rover.nav_angles)
-                    Rover.steer = np.clip(np.mean(Rover.nav_angles + offset) * 180 / np.pi, -15, 15)
+                    offset = 12
+                    Rover.steer = np.clip(np.mean(Rover.nav_angles * 180 / np.pi) + offset, -15, 15)
                     Rover.mode.pop()  # returns to previous mode
 
     # Just to make the rover do something 
