@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import numpy as np
 import cv2
 
@@ -380,4 +380,4 @@ def perception_step(Rover):
     Rover.samples_dists = dist
     Rover.samples_angles = angles
     return Rover
->>>>>>> 9ca0595f6bb49640a4f3653d427c800724d9371e
+
