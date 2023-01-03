@@ -10,7 +10,7 @@ def decision_step(Rover):
 
     # offset in rad used to hug the left wall.
     offset = 0
-    # Only apply left wall hugging when out of the starting point (after 10s)
+    # Only apply left wall hugging when out of the starting point (after 15s)
     # to avoid getting stuck in a circle
     if Rover.total_time > 15:
         # Steering proportional to the deviation results in
